@@ -1,0 +1,19 @@
+version: '3'
+services:
+  ################
+  # Central bus. #
+  ################
+  rabbit:
+    env_file: ./data/rabbitmq/rabbitmq.env
+    container_name: "rabbit"
+    image: "rabbitmq:3-management"
+    labels:
+      devtools: null
+    ports:
+      - "4369:4369"
+      - "5671:5671"
+      - "5672:5672"
+      - "15671:15671"
+      - "15672:15672"
+      - "25672:25672"
+    network_mode: "bridge"
